@@ -1,0 +1,90 @@
+name: Build and Release Resource Pack
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Optional tag name (e.g. v1.0.0). If empty, an automatic tag based on commit and run number will be used.'
+        required: false
+        default: ''
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate pack structure
+        run: |
+          test -f pack.mcmeta || { echo 'pack.mcmeta not found at repo root'; exit 1; }
+          test -d assets || { echo 'assets/ directory not found at repo root'; exit 1; }
+
+      - name: Determine tag and version
+        id: vars
+        shell: bash
+        run: |
+          if [[ -n "${{ github.event.inputs.tag }}" ]]; then
+            TAG_NAME="${{ github.event.inputs.tag }}"
+          else
+            SHORT_SHA="${GITHUB_SHA::7}"
+            TAG_NAME="auto-${SHORT_SHA}-${GITHUB_RUN_NUMBER}"
+            echo "::notice::Auto-generated tag: ${TAG_NAME}"
+          fi
+          echo "tag_name=${TAG_NAME}" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Create zip (root must contain pack.mcmeta, pack.png, assets/)
+        run: |
+          ZIP_NAME="KoM-resource-pack.zip"
+          # Include only the expected files/directories at the root of the zip
+          ls -la
+          set -e
+          rm -f "$ZIP_NAME"
+          zip -r "$ZIP_NAME" pack.mcmeta pack.png assets -x "*.git*" "*.DS_Store"
+          ls -lh "$ZIP_NAME"
+
+      - name: Compute SHA-1
+        id: sha
+        shell: bash
+        run: |
+          ZIP_NAME="KoM-resource-pack.zip"
+          HASH=$(sha1sum "$ZIP_NAME" | awk '{print $1}')
+          echo "$HASH" > KoM-resource-pack.sha1
+          echo "sha1=${HASH}" >> "$GITHUB_OUTPUT"
+          echo "::notice::SHA1=${HASH}"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.vars.outputs.tag_name }}
+          name: Resource Pack ${{ steps.vars.outputs.tag_name }}
+          body: |
+            Minecraft resource pack release.
+
+            Download: https://github.com/${{ github.repository }}/releases/download/${{ steps.vars.outputs.tag_name }}/KoM-resource-pack.zip
+
+            SHA-1: `${{ steps.sha.outputs.sha1 }}`
+
+            Use this URL and hash in your plugin/server.properties.
+          draft: false
+          prerelease: false
+          files: |
+            KoM-resource-pack.zip
+            KoM-resource-pack.sha1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "Release tag: ${{ steps.vars.outputs.tag_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "SHA-1: ${{ steps.sha.outputs.sha1 }}" >> $GITHUB_STEP_SUMMARY
+          echo "Download (latest): https://github.com/${{ github.repository }}/releases/latest/download/KoM-resource-pack.zip" >> $GITHUB_STEP_SUMMARY
