@@ -2,12 +2,12 @@ name: Build and Release Resource Pack
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag name (e.g. v1.0.0). If empty and manually triggered, a prerelease with a timestamp tag will be created.'
+        description: 'Optional tag name (e.g. v1.0.0). If empty, an automatic tag based on commit and run number will be used.'
         required: false
         default: ''
 
@@ -32,14 +32,12 @@ jobs:
         id: vars
         shell: bash
         run: |
-          if [[ "${{ github.event_name }}" == "push" && "${{ github.ref }}" == refs/tags/* ]]; then
-            TAG_NAME="${GITHUB_REF#refs/tags/}"
-          elif [[ -n "${{ github.event.inputs.tag }}" ]]; then
+          if [[ -n "${{ github.event.inputs.tag }}" ]]; then
             TAG_NAME="${{ github.event.inputs.tag }}"
           else
-            TS=$(date +"%Y%m%d-%H%M%S")
-            TAG_NAME="prerelease-${TS}"
-            echo "::notice::No tag provided; using ${TAG_NAME} as prerelease tag"
+            SHORT_SHA="${GITHUB_SHA::7}"
+            TAG_NAME="auto-${SHORT_SHA}-${GITHUB_RUN_NUMBER}"
+            echo "::notice::Auto-generated tag: ${TAG_NAME}"
           fi
           echo "tag_name=${TAG_NAME}" >> "$GITHUB_OUTPUT"
           echo "version=${TAG_NAME#v}" >> "$GITHUB_OUTPUT"
@@ -78,7 +76,7 @@ jobs:
 
             Use this URL and hash in your plugin/server.properties.
           draft: false
-          prerelease: ${{ startsWith(steps.vars.outputs.tag_name, 'prerelease-') }}
+          prerelease: false
           files: |
             KoM-resource-pack.zip
             KoM-resource-pack.sha1
