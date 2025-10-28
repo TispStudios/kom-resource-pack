@@ -2,5 +2,9 @@
   "parent": "item/generated",
   "textures": {
     "layer0": "item/arrow"
-  }
+  },
+  "overrides": [
+    { "predicate": { "custom_model_data": 1001 }, "model": "item/arrow_left" },
+    { "predicate": { "custom_model_data": 1002 }, "model": "item/arrow_right" }
+  ]
 }
