@@ -1,0 +1,22 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "minecraft:gui/container/economy_background.png",
+      "ascent": -32768,
+      "height": 256,
+      "chars": [
+        "\uF001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:gui/container/combat_background.png",
+      "ascent": -32768,
+      "height": 256,
+      "chars": [
+        "\uF002"
+      ]
+    }
+  ]
+}
