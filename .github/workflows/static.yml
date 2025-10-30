@@ -1,0 +1,40 @@
+name: Build & Publish latest.zip (GitHub Pages)
+
+on:
+  push:
+    branches: [ main ]   # ajuste se usar outra branch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # TODO: gere seu resource pack aqui
+      - name: Build resource pack zip
+        run: |
+          mkdir -p out
+          # Exemplo — ajuste para seu processo real
+          # cp -r assets pack.mcmeta out/
+          # cd out && zip -r latest.zip .
+          zip -r out/latest.zip assets pack.mcmeta
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4
