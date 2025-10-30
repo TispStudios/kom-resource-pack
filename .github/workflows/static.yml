@@ -1,8 +1,8 @@
-name: Build & Publish latest.zip (GitHub Pages)
+name: Build & Publish KoM Resource Pack (GitHub Pages)
 
 on:
   push:
-    branches: [ main ]   # ajuste se usar outra branch
+    branches: [ main ]  # executa sempre que fizer push na main
 
 permissions:
   contents: read
@@ -12,19 +12,20 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      # TODO: gere seu resource pack aqui
-      - name: Build resource pack zip
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 🧱 Gera o ZIP do resource pack
+      # Ajuste os paths conforme sua estrutura real (exemplo: pack.mcmeta + assets/)
+      - name: Build resource pack ZIP
         run: |
           mkdir -p out
-          # Exemplo — ajuste para seu processo real
-          # cp -r assets pack.mcmeta out/
-          # cd out && zip -r latest.zip .
-          zip -r out/latest.zip assets pack.mcmeta
+          zip -r "out/KoM-resource-pack.zip" assets pack.mcmeta
 
-      - name: Upload Pages artifact
+      # 📦 Envia o ZIP como artifact do GitHub Pages
+      - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: out
@@ -35,6 +36,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
+
     steps:
       - id: deploy
+        name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
