@@ -83,12 +83,6 @@
       "ascent": 13,
       "height": 256,
       "chars": ["\uF00E"]
-    },
-    {
-      "type": "space",
-      "advances": {
-        "\uF800": -256
-      }
     }
   ]
 }
