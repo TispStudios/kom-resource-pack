@@ -5,6 +5,7 @@
       "file": "minecraft:gui/container/lumberjack_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF003"]
     },
     {
@@ -12,6 +13,7 @@
       "file": "minecraft:gui/container/miner_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF004"]
     },
     {
@@ -19,6 +21,7 @@
       "file": "minecraft:gui/container/blacksmith_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF005"] 
     },
     {
@@ -26,6 +29,7 @@
       "file": "minecraft:gui/container/alchemist_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF006"]
     },
     {
@@ -33,6 +37,7 @@
       "file": "minecraft:gui/container/farmer_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF007"]
     },
     {
@@ -40,6 +45,7 @@
       "file": "minecraft:gui/container/hunter_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF008"]
     },
     {
@@ -47,6 +53,7 @@
       "file": "minecraft:gui/container/paladin_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF009"]
     },
     {
@@ -54,6 +61,7 @@
       "file": "minecraft:gui/container/mage_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF00A"]
     },
     {
@@ -61,6 +69,7 @@
       "file": "minecraft:gui/container/rogue_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF00B"]
     },
     {
@@ -68,6 +77,7 @@
       "file": "minecraft:gui/container/barbarian_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF00C"]
     },
     {
@@ -75,6 +85,7 @@
       "file": "minecraft:gui/container/archer_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF00D"]
     },
     {
@@ -82,6 +93,7 @@
       "file": "minecraft:gui/container/engineer_background.png",
       "ascent": 13,
       "height": 256,
+      "shift": [-128, 0],
       "chars": ["\uF00E"]
     }
   ]
