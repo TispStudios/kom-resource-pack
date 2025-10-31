@@ -5,7 +5,7 @@
       "file": "minecraft:gui/container/lumberjack_background.png",
       "ascent": 13,
       "height": 256,
-      "chars": ["\uF003"],
+      "chars": ["\uF003"]
     },
     {
       "type": "bitmap",
