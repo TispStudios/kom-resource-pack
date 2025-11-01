@@ -3,7 +3,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/lumberjack_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF003"],
       "widths": [0]
@@ -11,7 +11,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/miner_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF004"],
       "widths": [0]
@@ -19,7 +19,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/blacksmith_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF005"],
       "widths": [0]
@@ -27,7 +27,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/alchemist_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF006"],
       "widths": [0]
@@ -35,7 +35,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/farmer_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF007"],
       "widths": [0]
@@ -43,7 +43,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/hunter_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF008"],
       "widths": [0]
@@ -51,7 +51,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/paladin_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF009"],
       "widths": [0]
@@ -59,7 +59,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/mage_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF00A"],
       "widths": [0]
@@ -67,7 +67,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/rogue_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF00B"],
       "widths": [0]
@@ -75,7 +75,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/barbarian_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF00C"],
       "widths": [0]
@@ -83,7 +83,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/archer_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF00D"],
       "widths": [0]
@@ -91,7 +91,7 @@
     {
       "type": "bitmap",
       "file": "minecraft:gui/container/engineer_background.png",
-      "ascent": 11,
+      "ascent": 12,
       "height": 256,
       "chars": ["\uF00E"],
       "widths": [0]
