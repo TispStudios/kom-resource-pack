@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "minecraft:item/class_selection/classes/class_hunter"
+  }
+}

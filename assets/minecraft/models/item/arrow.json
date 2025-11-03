@@ -4,7 +4,27 @@
     "layer0": "item/arrow"
   },
   "overrides": [
-    { "predicate": { "custom_model_data": 1001 }, "model": "item/arrow_left" },
-    { "predicate": { "custom_model_data": 1002 }, "model": "item/arrow_right" }
+    { "predicate": { "custom_model_data": 1003 }, "model": "item/class_selection/confirm" },
+    { "predicate": { "custom_model_data": 1004 }, "model": "item/class_selection/cancel" },
+    
+    { "predicate": { "custom_model_data": 2001 }, "model": "item/class_selection/classes/class_lumberjack" },
+    { "predicate": { "custom_model_data": 2002 }, "model": "item/class_selection/classes/class_blacksmith" },
+    { "predicate": { "custom_model_data": 2003 }, "model": "item/class_selection/classes/class_miner" },
+    { "predicate": { "custom_model_data": 2004 }, "model": "item/class_selection/classes/class_farmer" },
+    { "predicate": { "custom_model_data": 2005 }, "model": "item/class_selection/classes/class_hunter" },
+    { "predicate": { "custom_model_data": 2006 }, "model": "item/class_selection/classes/class_alchemist" },
+    
+    { "predicate": { "custom_model_data": 2101 }, "model": "item/class_selection/classes/class_barbarian" },
+    { "predicate": { "custom_model_data": 2102 }, "model": "item/class_selection/classes/class_engineer" },
+    { "predicate": { "custom_model_data": 2103 }, "model": "item/class_selection/classes/class_paladin" },
+    { "predicate": { "custom_model_data": 2104 }, "model": "item/class_selection/classes/class_rogue" },
+    { "predicate": { "custom_model_data": 2105 }, "model": "item/class_selection/classes/class_archer" },
+    { "predicate": { "custom_model_data": 2106 }, "model": "item/class_selection/classes/class_mage" },
+    
+    { "predicate": { "custom_model_data": 3001 }, "model": "item/class_selection/stats/stat_health" },
+    { "predicate": { "custom_model_data": 3002 }, "model": "item/class_selection/stats/stat_resistance" },
+    { "predicate": { "custom_model_data": 3003 }, "model": "item/class_selection/stats/stat_dexterity" },
+    { "predicate": { "custom_model_data": 3004 }, "model": "item/class_selection/stats/stat_strength" },
+    { "predicate": { "custom_model_data": 3005 }, "model": "item/class_selection/stats/stat_intelligence" }
   ]
 }
